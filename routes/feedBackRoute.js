@@ -1,19 +1,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Feedback = require("./models/feedback");
+const Feedback = require("../models/feedback");
 
 const app = express();
 
 app.use(express.json());
 
 mongoose
-    .connect(process.env.MONGO_URI)
+    .connect("mongodb://127.0.0.1:27017/feedbackDB")
     .then(() => {
         console.log("MongoDB Connected");
     })
     .catch((err) => {
         console.log("MongoDB Connection Error:", err);
     });
+
+
 
 
 
